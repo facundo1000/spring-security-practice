@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: security-practice-two
+
+  h2:
+    console:
+      path: /h2
+      enabled: true
+
+  datasource:
+    url: jdbc:h2:mem:test
+    password: admin
+    username: admin
+
+  jpa:
+    database: h2
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+
+logging:
+  level:
+    sql: debug
