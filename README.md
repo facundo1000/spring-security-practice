@@ -1,6 +1,5 @@
 # Spring Security Practice
 
----
 It's a basic use of Spring Security in order to improve skills.
 
 ### **Dependencies**:
@@ -13,7 +12,6 @@ It's a basic use of Spring Security in order to improve skills.
 - Spring Web
 - Validation
 
----
 
 ## Database Access
 
@@ -23,7 +21,6 @@ It's a basic use of Spring Security in order to improve skills.
 - Username: ``admin``
 - Password: ``admin``
 
----
 
 ## Public Endpoints
 
@@ -46,7 +43,6 @@ It's a basic use of Spring Security in order to improve skills.
 
 ### Role Assign: ``http://localhost/8080/addRole/{userId}/{roleId}``
 
----
 
 ## Private Endpoints
 
@@ -55,7 +51,6 @@ It's a basic use of Spring Security in order to improve skills.
 - ``http://localhost/8080/api/admin`` - access for admins.
 - ``http://localhost/8080/api/dev`` - access for devs.
 
----
 
 In order to compile the application, the following command must be used within the root directory:
 
