@@ -45,3 +45,22 @@ It's a basic use of Spring Security in order to improve skills.
 ``
 
 ### Role Assign: ``http://localhost/8080/addRole/{userId}/{roleId}``
+
+---
+
+## Private Endpoints
+
+- ``http://localhost/8080/api/demo`` - access for every account.
+- ``http://localhost/8080/api/user`` - access for users & admins.
+- ``http://localhost/8080/api/admin`` - access for admins.
+- ``http://localhost/8080/api/dev`` - access for devs.
+
+---
+
+In order to compile the application, the following command must be used within the root directory:
+
+``mvn clean install``
+
+And to run the application you must access the "target" folder and run the following code through the console:
+
+``java -jar security-practice-two``
