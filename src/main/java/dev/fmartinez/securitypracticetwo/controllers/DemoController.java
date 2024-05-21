@@ -9,23 +9,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class DemoController {
 
-    @GetMapping("/demo")
+    @GetMapping("/unsecured")
     public ResponseEntity<String> hello() {
-        return ResponseEntity.ok("Hello World");
+        return ResponseEntity.ok("<h1>Hello this URL doesn't work with oauth2</h1>");
     }
 
-    @GetMapping("/admin")
+    @GetMapping("/secured")
     public ResponseEntity<String> adminResponse() {
-        return ResponseEntity.ok("Admin Response");
+        return ResponseEntity.ok("<h1>Hello this URL does work with oauth2<h1>");
     }
 
-    @GetMapping("/user")
-    public ResponseEntity<String> userResponse() {
-        return ResponseEntity.ok("User Response");
-    }
 
-    @GetMapping("/dev")
-    public ResponseEntity<String> developerResponse() {
-        return ResponseEntity.ok("Developer Response");
-    }
 }
