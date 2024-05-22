@@ -11,6 +11,7 @@ It's a basic use of Spring Security in order to improve skills.
 - H2 Database
 - Spring Web
 - Validation
+- Java-Jwt (from JWT Libraries)
 
 
 ## Database Access

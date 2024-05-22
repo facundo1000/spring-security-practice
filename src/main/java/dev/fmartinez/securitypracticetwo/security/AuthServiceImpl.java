@@ -85,7 +85,6 @@ public class AuthServiceImpl {
         log.info("User {} saved", user);
         return RegisterResponse.builder()
                 .username(user.getUsername())
-                .password(user.getPassword())
                 .email(user.getEmail())
                 .token(accessToken)
                 .enabled(user.getEnabled())
