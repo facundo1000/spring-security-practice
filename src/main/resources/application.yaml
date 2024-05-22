@@ -18,6 +18,13 @@ spring:
       ddl-auto: update
     defer-datasource-initialization: true
 
+  security:
+    jwt:
+      key:
+        private: ${JWT_PRIVATE_KEY}
+      user:
+        generator: AUTH-BACKEND
+
 logging:
   level:
     sql: debug

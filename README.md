@@ -1,4 +1,4 @@
-# Spring Security Practice
+# Spring Security Practice + JWT
 
 It's a basic use of Spring Security in order to improve skills.
 

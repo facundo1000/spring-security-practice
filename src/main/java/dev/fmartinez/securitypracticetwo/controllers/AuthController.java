@@ -2,8 +2,10 @@ package dev.fmartinez.securitypracticetwo.controllers;
 
 import dev.fmartinez.securitypracticetwo.security.*;
 import dev.fmartinez.securitypracticetwo.security.dto.LoginRequest;
+import dev.fmartinez.securitypracticetwo.security.dto.LoginResponse;
 import dev.fmartinez.securitypracticetwo.security.dto.RegisterRequest;
 import dev.fmartinez.securitypracticetwo.security.dto.RegisterResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,18 +24,13 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<LoginResponse> login(@RequestBody @Valid LoginRequest loginRequest) {
         return new ResponseEntity<>(service.loginValidate(loginRequest), HttpStatus.OK);
     }
 
     @PostMapping("/register")
     public ResponseEntity<RegisterResponse> registerResponse(@RequestBody RegisterRequest registerRequest) {
         return new ResponseEntity<>(service.saveUser(registerRequest),HttpStatus.OK);
-    }
-
-    @PutMapping("/addRole/{userId}/{roleId}")
-    public ResponseEntity<String> addRoleToUser(@PathVariable Long userId, @PathVariable Long roleId) {
-        return new ResponseEntity<>(service.roleAssign(userId, roleId),HttpStatus.OK);
     }
 
 

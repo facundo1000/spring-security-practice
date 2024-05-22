@@ -1,19 +1,9 @@
 package dev.fmartinez.securitypracticetwo.security.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 
-@Data
 @Builder
-@AllArgsConstructor
-public class RegisterResponse {
 
-    private String username;
+public record RegisterResponse(String username, String password, String token, String email, Boolean enabled) {
 
-    private String password;
-
-    private String email;
-
-    private Boolean enabled;
 }

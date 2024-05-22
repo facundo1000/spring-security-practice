@@ -1,6 +1,8 @@
 package dev.fmartinez.securitypracticetwo.config;
 
+import dev.fmartinez.securitypracticetwo.config.filter.JwtTokenValidator;
 import dev.fmartinez.securitypracticetwo.security.UserDetailsServiceImpl;
+import dev.fmartinez.securitypracticetwo.utils.JwtUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
@@ -19,6 +21,7 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 
 @Configuration
@@ -29,6 +32,7 @@ public class SecurityConfig {
 
     private final PasswordEncoder passwordEncoder;
 
+    private final JwtUtils utils;
 
     @Bean
     public WebSecurityCustomizer customizer() {
@@ -49,6 +53,8 @@ public class SecurityConfig {
                     https.requestMatchers("/api/dev").hasRole("DEVELOPER");
                     https.anyRequest().authenticated();
                 })
+                //se necesita ejectuar este filtro antes de que se ejecute el filtro de autenticacion
+                .addFilterBefore(new JwtTokenValidator(utils), UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 

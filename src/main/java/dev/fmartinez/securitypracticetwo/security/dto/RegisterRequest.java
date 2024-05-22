@@ -1,13 +1,13 @@
 package dev.fmartinez.securitypracticetwo.security.dto;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
-import lombok.Data;
 
-@Data
 @Builder
-public class RegisterRequest {
-    private String username;
-    private String password;
-    private String email;
-
+public record RegisterRequest(@NotBlank String username,
+                              @NotBlank String password,
+                              @NotBlank @Email(regexp = "[a-zA-Z]+[0-9]+@[a-zA-Z]+.?[a-z]+") String email,
+                              @Valid RolesNames rolesNames) {
 }

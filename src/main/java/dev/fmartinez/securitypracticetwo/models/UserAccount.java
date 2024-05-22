@@ -3,6 +3,7 @@ package dev.fmartinez.securitypracticetwo.models;
 import dev.fmartinez.securitypracticetwo.security.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import lombok.*;
 
 import java.util.Objects;
@@ -27,6 +28,7 @@ public class UserAccount {
     @NotBlank
     private String password;
 
+    @Pattern(regexp = "[a-zA-Z]+@[a-zA-Z]+.{1}[a-z]+")
     private String email;
 
     private Boolean enabled;

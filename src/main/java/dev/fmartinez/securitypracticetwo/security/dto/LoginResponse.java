@@ -1,11 +1,10 @@
 package dev.fmartinez.securitypracticetwo.security.dto;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Builder;
-import lombok.Data;
 
-@Data
+@JsonPropertyOrder({"username", "message", "token", "status"})
 @Builder
-public class LoginResponse {
-    private String username;
-    private String password;
+public record LoginResponse(String username, String message, String token, boolean status) {
+
 }
